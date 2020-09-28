@@ -1,13 +1,47 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "Inter";
+    font-weight: 400;
+    src: url("../fonts/Inter-Regular.woff2") format("woff2");
+}
 
+@font-face {
+    font-family: "Inter";
+    font-weight: 600;
+    src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+}
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
+    --global-color-alpha-light: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-color-transparent: #3385FFBF;
+    --global-color-x-transparent: #3385FF4D;
 
+    /* grijswaarden */
+    --global-color-neutral-xxxxx-light: #FFFFFF;
+    --global-color-neutral-xxxx-light: #F5F6FA;
+    --global-color-neutral-xxx-light: #E2E3E7; 
+    --global-color-neutral-xx-light: #CACCD4;
+    --global-color-neutral-x-light: #B5B6C0;
+    --global-color-neutral-light: #A0A1AD;
+    --global-color-neutral: #8B8C9A;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4B4C60;
+    --global-color-neutral-xxx-dark: #35374D;
+    --global-color-neutral-xxxx-dark: #2A2C43;
+    --global-color-neutral-xxxxx-dark: #20223A;
+
+    /* whitespace */
+    --global-baseline: 8px; 
+    --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /* = 48px */
 }
 
 /* CSS variables here */
@@ -123,7 +157,7 @@ figure {
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace);
 }
 
 li ul,
@@ -158,18 +192,19 @@ hr {
 }
 
 a {
-    color: #3385FF;
+    color: var(--global-color-alpha);
+    text-decoration: none;
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: #82b4ff;
+    color: var(--global-color-alpha-light);
 }
 
 a:hover,
 a:focus {
-    color: #82b4ff;
+    color: var(--global-color-alpha-light);
 }
 
 label {
@@ -192,29 +227,32 @@ input {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
 .o-row--login {
     /* stuff here to align the card */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 /* size modifiers */
 
 .o-row--lg {
-    padding-top: 48px;
-    padding-bottom: 24px;
+    padding-top: var(--global-whitespace-xl);
+    padding-bottom: var(--global-whitespace);
 }
 
 .o-row--xl {
     padding-top: 72px;
-    padding-bottom: 48px;
+    padding-bottom: var(--global-whitespace-xl);
 }
 
 @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: var(--global-whitespace-xl);
+        padding-right: var(--global-whitespace-xl);
     }
 }
 
@@ -249,13 +287,13 @@ input {
 }
 
 .o-section + .o-section {
-    padding-top: 24px;
+    padding-top: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
     .o-section--lg + .o-section--lg,
     .o-section--xl + .o-section--xl {
-        padding-top: 48px;
+        padding-top: var(--global-whitespace-xl);
     }
 }
 
@@ -452,14 +490,14 @@ input {
 
 .c-card__title {
     font-size: 18px;
-    line-height: 24px;
+    line-height: var(--global-whitespace);
     text-align: center;
     font-weight: 600;
     margin: 0;
 }
 
 .c-card__footer {
-    padding: 24px;
+    padding: var(--global-whitespace);
     text-align: center;
     border-top: 1px solid #E2E3E7;
 }
@@ -470,7 +508,7 @@ input {
 */
 
 .c-logo{
-    height: 24px;
+    height: var(--global-whitespace);
     display: flex;
     justify-content: center;
 }
@@ -605,7 +643,7 @@ input {
 */
 
 .u-color-neutral-base {
-    color: Silver;
+    color: #757787;
 }
 
 .u-color-neutral-dark {
